@@ -10,8 +10,5 @@
   - unzip
   scripts:
   - startup
-  forwarded_ports:
-    - guest: 9000
-      host: 9000
 ...
 
