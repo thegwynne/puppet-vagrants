@@ -73,3 +73,13 @@ The guest `name`, `box`, `cpus`, `memory` and `private_ip` must be defined:
 	- startup
 	- configure_firewall.sh
 	```
+- **forwarded_ports**  
+	Ports from the guest machines can be forwarded to the host with this property. 
+	You may have multiple ports forwarded per guest but careful of clashes:
+	```yaml
+	forwarded_ports:
+	- guest: 9000
+	  host: 9000
+	- guest: 8080
+	  host: 9900
+	```
