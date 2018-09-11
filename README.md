@@ -83,3 +83,4 @@ The guest `name`, `box`, `cpus`, `memory` and `private_ip` must be defined:
 	- guest: 8080
 	  host: 9900
 	```
+# puppet-vagrants
