@@ -1,15 +1,37 @@
 ---
-- name: default
+- name: server
   box: centos/7
   cpus: 1
-  memory: 2048
+  memory: 1024
   private_ip: 10.0.10.10
+  public_ip: 192.169.0.3
   package_manager: yum
+  forwarded_ports:
+  - guest: 80
+    host: 1235
   packages:
   - wget
   - unzip
   - git
+  - java
   scripts:
-  - vim_config 
+  - vim_config
+- name: agent
+  box: centos/7
+  cpus: 1
+  memory: 1024
+  private_ip: 10.0.10.11
+  public_ip: 192.169.0.4
+  package_manager: yum
+  forwarded_ports:
+  - guest: 80
+    host: 1234
+  packages:
+  - wget
+  - unzip
+  - git
+  - java
+  scripts:
+  - vim_config
 ...
 

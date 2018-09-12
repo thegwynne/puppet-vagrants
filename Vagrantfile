@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
     config.vm.define guest['name'] do |guest_vm|
       set_box(guest, guest_vm)
       set_cpus_and_memory(guest, guest_vm)
-      set_private_ip(guest, guest_vm)
+      set_public_ip(guest, guest_vm)
       set_forwarded_ports(guest, guest_vm)
       set_synced_folders(guest, guest_vm)
       update_with_package_manager(guest, guest_vm)
@@ -30,6 +30,10 @@ end
 
 def set_private_ip(guest, guest_vm)
   guest_vm.vm.network "private_network", ip: guest['private_ip']
+end
+
+def set_public_ip(guest, guest_vm)
+  guest_vm.vm.network "public_network", ip: guest['public_ip']
 end
 
 def set_forwarded_ports(guest, guest_vm)
